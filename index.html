@@ -1,0 +1,82 @@
+<meta charset="UTF-8">
+
+
+<h1>PROGRAMA CALCULAR IMC</h1>
+
+
+<!– programa de calculo de IMC de una persona –>
+<script>
+
+/*
+    definimos la funcion saltarlinea para crear espaciado en entre lineas
+   */
+	function saltarLinea() {
+
+		document.write("<br>");	
+		document.write("<br>");	
+		document.write("<br>");	
+
+	}  
+/*
+  creamos la funcion imprimir , referenciando a la funcion saltarlinea
+   */
+	function imprimir(frase) {
+
+		document.write(frase);
+		saltarLinea();
+
+	}
+ /*
+   definimos la funcion calcularimc  con parametros peso y altura
+   */
+	function calcularImc(peso,altura) {
+
+		return (peso / (altura * altura));
+	
+	}
+    /*
+   la estructura de nuestro pop-up
+   */
+	nombre = prompt("infome su nombre");
+	pesoInformado = prompt(nombre + ", infome su peso");
+	alturaInformado = prompt(nombre + ",infome su altura");
+	
+	imcCalculado = calcularImc(pesoInformado,alturaInformado);
+
+	imprimir(nombre + ", su imc calculado es: " + imcCalculado);
+
+	/*
+   realizamos el bucle condicional para evaluar los parametros ingresados en nuestra
+   funcion. de acuerdo a los estandares de la OMS
+   */
+
+	if (imcCalculado < 18.5) { 
+		
+		imprimir("IMC abajo de lo recomendado");
+	}
+
+	if (imcCalculado >= 18.5) {
+
+		if (imcCalculado < 25){
+
+			imprimir("IMC está dentro del intervalo normal");
+
+		} 
+		
+	}
+	
+	if (imcCalculado >= 25) {
+
+		if (imcCalculado < 30){
+
+			imprimir("IMC considerado como sobrepeso");
+
+		} 
+		
+	}
+	
+	if (imcCalculado >= 30) { 
+		imprimir("IMC considerado como obesidad")
+	}
+	
+</script>
